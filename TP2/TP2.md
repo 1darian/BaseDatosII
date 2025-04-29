@@ -2,55 +2,55 @@
 
 [1](#1) [2](#2) [3](#3) [4](#4) [5](#5) [6](#6) [7](#7) [8](#8) [9](#9) [10] (#10)
 
-## 1. 
+## 1. CRUD 
 
-### Verificar si esta instalado mongodb
+#### Verificar si esta instalado mongodb
 
 ```bash
 mongod --version
 ```
 <img src="img/verificar-instalacion.png">
 
-### Conectarse a mongodb mediante mongosh
+#### Conectarse a mongodb mediante mongosh
 
 ```bash
 mongosh
 ```
 <img src="img/mongosh.png">
 
-### Llamamos la base de datos "empresa"
+#### Llamamos la base de datos "empresa"
 
 ```bash
 use empresa
 ```
 
-### Creacion de colecciones empleados
+#### Creacion de colecciones empleados
 
 ```bash
 db.createCollection("empleados")
 ```
 
-### Insertar datos en la coleccion empleados
+#### Insertar datos en la coleccion empleados
 
 ```bash
 db.empleados.insertMany([
-    {nombre:'Juani Ignacio', edad: 20, puesto: 'pasante'},
-    {nombre:'Darian', edad: '20', puesto: 'Backend Developer'},
-    {nombre:'Bautista', edad: '20', puesto: 'Software Developer'}
+    {nombre:'Juani Ignacio', edad: 30, puesto: 'pasante'},
+    {nombre:'Darian', edad: 32, puesto: 'Backend Developer'},
+    {nombre:'Bautista', edad: 41, puesto: 'Software Developer'}
 ]);
 ```
-## Update
-### Actualizar la edad del empleado 'Bautista'
+### Update
+#### Actualizar la edad del empleado 'Bautista'
 
 ```bash
 db.empleados.updateOne(
     {nombre: 'Bautista'},
-    {$set: {edad: 21}}
+    {$set: {edad: 29}}
 );
 ```
 
-## Delete
-### Eliminar el empleado 'pasante'
+### Delete
+#### Eliminar el empleado 'pasante'
 
 ```bash
 db.empleados.deleteOne(
@@ -58,15 +58,13 @@ db.empleados.deleteOne(
 );
 ```
 
-### ver los datos
+#### Ver los datos
 
 ```bash
 db.empleados.find();
 ```
-<img src=img/ver-datos-finales.png>
 
+<img src="img/ver-datos-finales.png">
 
-
-
-
+## 2. Operadores Consulta
 

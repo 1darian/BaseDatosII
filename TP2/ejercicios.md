@@ -1,7 +1,4 @@
 TP2: MongoDB
-Ejercicio 1: CRUD básico
-
-Elimina al empleado que tenga el puesto de "pasante".
 
 Ejercicio 2: Búsquedas con operadores Consulta todos los empleados cuya edad esté entre 25 y 40 años. Usa operadores relacionales y lógicos.
 
