@@ -1,17 +1,17 @@
-### TP2: MONGODB
+# TP2: MONGODB
 
 [1](#1) [2](#2) [3](#3) [4](#4) [5](#5) [6](#6) [7](#7) [8](#8) [9](#9) [10] (#10)
 
-### 1. 
+## 1. 
 
-# Verificcar si esta instalado mongodb
+### Verificar si esta instalado mongodb
 
 ```bash
 mongod --version
 ```
 <img src="img/verificar-instalacion.png">
 
-# Conectarse a mongodb mediante mongosh
+### Conectarse a mongodb mediante mongosh
 
 ```bash
 mongosh
