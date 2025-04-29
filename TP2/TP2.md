@@ -256,138 +256,140 @@ db.alumnos.aggregate([
 ]);
 ```
 <details>
-<summary>Click to view results of $lookup aggregation: 
-    [
+  <summary>Ver resultado: </summary>
+
+```json
+[
   {
-    _id: ObjectId('681144a76e20d3280cb5f8bf'),
-    nombre: 'Juan',
-    apellido: 'Perez',
-    cursos: [ 1, 2, 3 ],
-    cursos_info: [
+    "_id": { "$oid": "681144a76e20d3280cb5f8bf" },
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "cursos": [1, 2, 3],
+    "cursos_info": [
       {
-        _id: ObjectId('681144896e20d3280cb5f8b9'),
-        id_curso: 1,
-        nombre: 'Programacion'
+        "_id": { "$oid": "681144896e20d3280cb5f8b9" },
+        "id_curso": 1,
+        "nombre": "Programacion"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8ba'),
-        id_curso: 2,
-        nombre: 'Matematicas'
+        "_id": { "$oid": "681144896e20d3280cb5f8ba" },
+        "id_curso": 2,
+        "nombre": "Matematicas"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bb'),
-        id_curso: 3,
-        nombre: 'Ingles'
+        "_id": { "$oid": "681144896e20d3280cb5f8bb" },
+        "id_curso": 3,
+        "nombre": "Ingles"
       }
     ]
   },
   {
-    _id: ObjectId('681144a76e20d3280cb5f8c0'),
-    nombre: 'Ana',
-    apellido: 'Gomez',
-    cursos: [ 4, 5, 6 ],
-    cursos_info: [
+    "_id": { "$oid": "681144a76e20d3280cb5f8c0" },
+    "nombre": "Ana",
+    "apellido": "Gomez",
+    "cursos": [4, 5, 6],
+    "cursos_info": [
       {
-        _id: ObjectId('681144896e20d3280cb5f8bc'),
-        id_curso: 4,
-        nombre: 'Fisica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bc" },
+        "id_curso": 4,
+        "nombre": "Fisica"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bd'),
-        id_curso: 5,
-        nombre: 'Quimica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bd" },
+        "id_curso": 5,
+        "nombre": "Quimica"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8be'),
-        id_curso: 6,
-        nombre: 'Biologia'
+        "_id": { "$oid": "681144896e20d3280cb5f8be" },
+        "id_curso": 6,
+        "nombre": "Biologia"
       }
     ]
   },
   {
-    _id: ObjectId('681144a76e20d3280cb5f8c1'),
-    nombre: 'Pedro',
-    apellido: 'Lopez',
-    cursos: [ 1, 3, 5 ],
-    cursos_info: [
+    "_id": { "$oid": "681144a76e20d3280cb5f8c1" },
+    "nombre": "Pedro",
+    "apellido": "Lopez",
+    "cursos": [1, 3, 5],
+    "cursos_info": [
       {
-        _id: ObjectId('681144896e20d3280cb5f8b9'),
-        id_curso: 1,
-        nombre: 'Programacion'
+        "_id": { "$oid": "681144896e20d3280cb5f8b9" },
+        "id_curso": 1,
+        "nombre": "Programacion"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bb'),
-        id_curso: 3,
-        nombre: 'Ingles'
+        "_id": { "$oid": "681144896e20d3280cb5f8bb" },
+        "id_curso": 3,
+        "nombre": "Ingles"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bd'),
-        id_curso: 5,
-        nombre: 'Quimica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bd" },
+        "id_curso": 5,
+        "nombre": "Quimica"
       }
     ]
   },
   {
-    _id: ObjectId('681144a76e20d3280cb5f8c2'),
-    nombre: 'Lucia',
-    apellido: 'Martinez',
-    cursos: [ 2, 4, 6 ],
-    cursos_info: [
+    "_id": { "$oid": "681144a76e20d3280cb5f8c2" },
+    "nombre": "Lucia",
+    "apellido": "Martinez",
+    "cursos": [2, 4, 6],
+    "cursos_info": [
       {
-        _id: ObjectId('681144896e20d3280cb5f8ba'),
-        id_curso: 2,
-        nombre: 'Matematicas'
+        "_id": { "$oid": "681144896e20d3280cb5f8ba" },
+        "id_curso": 2,
+        "nombre": "Matematicas"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bc'),
-        id_curso: 4,
-        nombre: 'Fisica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bc" },
+        "id_curso": 4,
+        "nombre": "Fisica"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8be'),
-        id_curso: 6,
-        nombre: 'Biologia'
+        "_id": { "$oid": "681144896e20d3280cb5f8be" },
+        "id_curso": 6,
+        "nombre": "Biologia"
       }
     ]
   },
   {
-    _id: ObjectId('681144a76e20d3280cb5f8c3'),
-    nombre: 'Jose',
-    apellido: 'Sanchez',
-    cursos: [ 1, 2, 3, 4, 5, 6 ],
-    cursos_info: [
+    "_id": { "$oid": "681144a76e20d3280cb5f8c3" },
+    "nombre": "Jose",
+    "apellido": "Sanchez",
+    "cursos": [1, 2, 3, 4, 5, 6],
+    "cursos_info": [
       {
-        _id: ObjectId('681144896e20d3280cb5f8b9'),
-        id_curso: 1,
-        nombre: 'Programacion'
+        "_id": { "$oid": "681144896e20d3280cb5f8b9" },
+        "id_curso": 1,
+        "nombre": "Programacion"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8ba'),
-        id_curso: 2,
-        nombre: 'Matematicas'
+        "_id": { "$oid": "681144896e20d3280cb5f8ba" },
+        "id_curso": 2,
+        "nombre": "Matematicas"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bb'),
-        id_curso: 3,
-        nombre: 'Ingles'
+        "_id": { "$oid": "681144896e20d3280cb5f8bb" },
+        "id_curso": 3,
+        "nombre": "Ingles"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bc'),
-        id_curso: 4,
-        nombre: 'Fisica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bc" },
+        "id_curso": 4,
+        "nombre": "Fisica"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8bd'),
-        id_curso: 5,
-        nombre: 'Quimica'
+        "_id": { "$oid": "681144896e20d3280cb5f8bd" },
+        "id_curso": 5,
+        "nombre": "Quimica"
       },
       {
-        _id: ObjectId('681144896e20d3280cb5f8be'),
-        id_curso: 6,
-        nombre: 'Biologia'
+        "_id": { "$oid": "681144896e20d3280cb5f8be" },
+        "id_curso": 6,
+        "nombre": "Biologia"
       }
     ]
   }
 ]
-</summary>
-
+```
+</details>
