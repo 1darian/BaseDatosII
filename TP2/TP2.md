@@ -39,7 +39,8 @@ db.empleados.insertMany([
     {nombre:'Bautista', edad: '20', puesto: 'Software Developer'}
 ]);
 ```
-## Update ###para los datos de 'Bautista'
+## Update
+### Actualizar la edad del empleado 'Bautista'
 
 ```bash
 db.empleados.updateOne(
