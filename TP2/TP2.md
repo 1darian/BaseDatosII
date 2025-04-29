@@ -393,3 +393,70 @@ db.alumnos.aggregate([
 ]
 ```
 </details>
+
+## 9. Replicación set y sharding, ventajas y beneficios de cada uno.
+
+<p> 
+    <strong>Replicación set: </strong>
+    Es un conjunto de servidores que se encuentran en la misma red, que se encuentran replicando los datos de una base de datos. Esto permite que los datos estén disponibles en caso de que uno de los servidores se caiga.
+</p>
+<p>
+    <strong>Sharding: </strong>
+    Es un proceso de particionamiento de una base de datos en varias partes, de manera que cada parte se encuentra en un servidor diferente. Esto permite que la base de datos sea más grande y más rápida.
+</p>
+<p>
+    <strong>Ventajas de la replicación set: </strong>
+    <ul>
+        <li>
+            Alta disponibilidad: En caso de que uno de los servidores se caiga, los datos estaran disponibles en otro servidor.
+        </li>
+        <li>
+            Mayor escalabilidad: Se pueden agregar mas servidores al conjunto de replicación.
+        </li>
+        <li>
+            Mayor rendimiento: En caso de que uno de los servidores se caiga, los datos estaran disponibles en otro servidor.
+        </li>
+    </ul>
+</p>
+<p>
+    <strong>Ventajas del sharding: </strong>
+    <ul>
+        <li>
+            Mayor escalabilidad: Se pueden agregar mas servidores al conjunto de replicación.
+        </li>
+        <li>
+            Mayor rendimiento: En caso de que uno de los servidores se caiga, los datos estaran disponibles en otro servidor.
+        </li>
+        <li>
+            Mayor capacidad de almacenamiento: Se pueden agregar mas servidores al conjunto de replicación.
+        </li>
+    </ul>
+</p>
+
+## 10. Seguridad y backups
+
+### Crear un usuario con permisos de lectura y escritura
+```bash
+use ("universidad");
+db.createUser(
+    {
+        user: "admin",
+        pwd: "admin123",
+        roles: [
+            {role: "readWrite""}
+        ]
+    }
+);
+```
+
+### Backup y restauración de una base de datos
+```bash
+mongodump --db universidad --out /backup
+```
+
+```bash
+mongorestore --db universidad /backup/universidad
+```
+
+
+😀
