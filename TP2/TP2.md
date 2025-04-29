@@ -34,7 +34,7 @@ db.createCollection("empleados")
 
 ```bash
 db.empleados.insertMany([
-    {nombre:'Juani Ignacio', edad: 20, puesto: 'Frontend Developer'},
+    {nombre:'Juani Ignacio', edad: 20, puesto: 'pasante'},
     {nombre:'Darian', edad: '20', puesto: 'Backend Developer'},
     {nombre:'Bautista', edad: '20', puesto: 'Software Developer'}
 ]);
@@ -48,6 +48,24 @@ db.empleados.updateOne(
     {$set: {edad: 21}}
 );
 ```
+
+## Delete
+### Eliminar el empleado 'pasante'
+
+```bash
+db.empleados.deleteOne(
+    {puesto: 'pasante'}
+);
+```
+
+### ver los datos
+
+```bash
+db.empleados.find();
+```
+<img src=img/ver-datos-finales.png>
+
+
 
 
 
