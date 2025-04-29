@@ -255,9 +255,9 @@ db.alumnos.aggregate([
     }
 ]);
 ```
-
 <details>
-<summary>[
+<summary>Click to view results of $lookup aggregation: 
+    [
   {
     _id: ObjectId('681144a76e20d3280cb5f8bf'),
     nombre: 'Juan',
@@ -388,5 +388,6 @@ db.alumnos.aggregate([
       }
     ]
   }
-]</summary>
+]
+</summary>
 
