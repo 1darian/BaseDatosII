@@ -1,0 +1,238 @@
+Ejercicio 1: CRUD
+
+Crear coleccion para realizar el CRUD:
+
+db.createCollection("estudiantes") ==== { ok: 1 }
+
+// Listar todos los estudiantes cuya edad esté entre 20 y 25 años (inclusive).
+
+db.estudiantes.find({ edad: { $gte: 20, $lte: 25 } })
+
+Terminal:
+
+[
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f899'),
+    nombre: 'María',
+    edad: 22,
+    carrera: 'Ingeniería',
+    promedio: 8.5
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89b'),
+    nombre: 'Miguel',
+    edad: 25,
+    carrera: 'Ingeniería',
+    promedio: 9.2
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89c'),
+    nombre: 'Ana',
+    edad: 24,
+    carrera: 'Física',
+    promedio: 7.5
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89d'),
+    nombre: 'Laura',
+    edad: 21,
+    carrera: 'Ingeniería',
+    promedio: 6.5
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89e'),
+    nombre: 'Jorge',
+    edad: 23,
+    carrera: 'Matemáticas',
+    promedio: 8
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89f'),
+    nombre: 'Lucía',
+    edad: 20,
+    carrera: 'Biología',
+    promedio: 7.8
+  }
+]
+
+// Incrementar en 0.2 el campo promedio de todos los estudiantes de la carrera “Ingeniería”
+
+db.estudiantes.updateMany(
+    { carrera: "Ingeniería" },
+    { $inc: { promedio: 0.2 } }
+) // leer el resultado
+db.estudiantes.find({ carrera: "Ingeniería" })
+
+Terminal:
+
+[
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f899'),
+    nombre: 'María',
+    edad: 22,
+    carrera: 'Ingeniería',
+    promedio: 8.7
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89b'),
+    nombre: 'Miguel',
+    edad: 25,
+    carrera: 'Ingeniería',
+    promedio: 9.399999999999999
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89d'),
+    nombre: 'Laura',
+    edad: 21,
+    carrera: 'Ingeniería',
+    promedio: 6.7
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f8a0'),
+    nombre: 'Diego',
+    edad: 26,
+    carrera: 'Ingeniería',
+    promedio: 9.2
+  }
+]
+
+// Eliminar los estudiantes que tengan un promedio menor a 7.
+
+db.estudiantes.deleteMany({promedio : {$lte : 7}})
+
+Terminal: 
+{ acknowledged: true, deletedCount: 2 }
+
+// Buscar los estudiantes cuyo nombre comience con la letra “M” o cuyo promedio sea mayor o igual a 9.
+db.estudiantes.find({$or : [{nombre : {$regex : "^M"}}, {promedio : {$gte : 9}}]})
+
+Terminal: 
+
+[
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f899'),
+    nombre: 'María',
+    edad: 22,
+    carrera: 'Ingeniería',
+    promedio: 8.7
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f89b'),
+    nombre: 'Miguel',
+    edad: 25,
+    carrera: 'Ingeniería',
+    promedio: 9.399999999999999
+  },
+  {
+    _id: ObjectId('682cf4a1db1ad07abab5f8a0'),
+    nombre: 'Diego',
+    edad: 26,
+    carrera: 'Ingeniería',
+    promedio: 9.2
+  }
+]
+
+Ejercicio 2: Modelado de datos
+
+// consulta aggregate que utilice $lookup para devolver cada documento de clientes incluyendo un arreglo pedidos con sus pedidos asociados.
+
+db.clientes.aggregate([
+    {
+        $lookup: {
+            from: "pedidos",
+            localField: "_id",
+            foreignField: "cliente_id",
+            as: "pedidos"
+        }
+    }
+])
+
+Terminal:
+[
+  {
+    _id: ObjectId('64abf1234a1b2c3d4e5f6789'),
+    nombre: 'Empresa A',
+    email: 'contacto@empresaA.com',
+    pedidos: [
+      {
+        _id: ObjectId('682cf76b5cf5861717b5f899'),
+        fecha: ISODate('2025-04-01T10:00:00.000Z'),
+        cliente_id: ObjectId('64abf1234a1b2c3d4e5f6789'),
+        productos: [
+          { producto: 'Teclado', precio: 50, cantidad: 2 },
+          { producto: 'Mouse', precio: 20, cantidad: 1 }
+        ]
+      },
+      {
+        _id: ObjectId('682cf76b5cf5861717b5f89a'),
+        fecha: ISODate('2025-04-02T14:30:00.000Z'),
+        cliente_id: ObjectId('64abf1234a1b2c3d4e5f6789'),
+        productos: [ { producto: 'Monitor', precio: 150, cantidad: 1 } ]
+      }
+    ]
+  },
+  {
+    _id: ObjectId('64abf1234a1b2c3d4e5f6790'),
+    nombre: 'Empresa B',
+    email: 'info@empresaB.com',
+    pedidos: [
+      {
+        _id: ObjectId('682cf76b5cf5861717b5f89b'),
+        fecha: ISODate('2025-04-03T09:15:00.000Z'),
+        cliente_id: ObjectId('64abf1234a1b2c3d4e5f6790'),
+        productos: [
+          { producto: 'Impresora', precio: 200, cantidad: 1 },
+          { producto: 'Tóner', precio: 40, cantidad: 3 }
+        ]
+      },
+      {
+        _id: ObjectId('682cf76b5cf5861717b5f89d'),
+        fecha: ISODate('2025-04-06T16:45:00.000Z'),
+        cliente_id: ObjectId('64abf1234a1b2c3d4e5f6790'),
+        productos: [ { producto: 'USB Drive', precio: 15, cantidad: 5 } ]
+      }
+    ]
+  },
+  {
+    _id: ObjectId('64abf1234a1b2c3d4e5f6791'),
+    nombre: 'Empresa C',
+    email: 'ventas@empresaC.com',
+    pedidos: [
+      {
+        _id: ObjectId('682cf76b5cf5861717b5f89c'),
+        fecha: ISODate('2025-04-05T11:00:00.000Z'),
+        cliente_id: ObjectId('64abf1234a1b2c3d4e5f6791'),
+        productos: [
+          { producto: 'Cámara', precio: 350, cantidad: 1 },
+          { producto: 'Trípode', precio: 80, cantidad: 1 }
+        ]
+      }
+    ]
+  }
+]
+
+Ejercicio 3: Pipeline de agregacion
+
+// pipeline aggregate que Filtre las ventas entre el 1 de enero y el 31 de marzo de 2025.
+db.ventas.aggregate([
+    { $match: { fecha: { $gte: ISODate("2025-01-01T00:00:00Z"), $lte: ISODate("2025-03-31T23:59:59Z") } } },
+    // Agrupe por categoria, calculando el total de ventas y el número de transacciones.
+    {
+        $group: {
+            _id: "$categoria",
+            totalVentas: { $sum: "$monto" },
+            numeroTransacciones: { $sum: 1 }
+        }
+    },
+    //Ordene los resultados de forma descendente por total de ventas.
+    { $sort: { totalVentas: -1 } },
+    // Limite la salida a las tres categorías con mayor facturación.
+    { $limit: 3 }
+])
+
+Terminal:
+[
+  { _id: 'Electrónica', totalVentas: 1250, numeroTransacciones: 3 },
+  { _id: 'Deportes', totalVentas: 550, numeroTransacciones: 2 },
+  { _id: 'Ropa', totalVentas: 470, numeroTransacciones: 3 }
+]
