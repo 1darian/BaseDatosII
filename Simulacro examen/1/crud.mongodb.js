@@ -16,12 +16,27 @@ db.estudiantes.insertMany([ { nombre: "María", edad: 22, carrera: "Ingeniería"
 //CRUD:
 
 // Listar todos los estudiantes cuya edad esté entre 20 y 25 años (inclusive).
-db.estudiantes.find({ edad: { $gte: 20, $lte: 25 } })
+db.estudiantes.find(
+  { 
+    edad: 
+  { 
+    $gte: 20, 
+    $lte: 25 
+  } 
+}
+)
 
 // Incrementar en 0.2 el campo promedio de todos los estudiantes de la carrera “Ingeniería”
 db.estudiantes.updateMany(
-    { carrera: "Ingeniería" },
-    { $inc: { promedio: 0.2 } }
+    { 
+      carrera: "Ingeniería" 
+    },
+    { 
+      $inc: 
+      { 
+        promedio: 0.2
+      } 
+    }
 ) 
 // leer el resultado
 db.estudiantes.find({ carrera: "Ingeniería" })

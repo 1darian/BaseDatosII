@@ -21,13 +21,7 @@ db.ventas.insertMany([
 db.ventas.aggregate([
     { $match: { fecha: { $gte: ISODate("2025-01-01T00:00:00Z"), $lte: ISODate("2025-03-31T23:59:59Z") } } },
     // Agrupe por categoria, calculando el total de ventas y el número de transacciones.
-    {
-        $group: {
-            _id: "$categoria",
-            totalVentas: { $sum: "$monto" },
-            numeroTransacciones: { $sum: 1 }
-        }
-    },
+    {$group: {_id: "$categoria", totalVentas: { $sum: "$monto" }, numeroTransacciones: { $sum: 1 }}},
     //Ordene los resultados de forma descendente por total de ventas.
     { $sort: { totalVentas: -1 } },
     // Limite la salida a las tres categorías con mayor facturación.
