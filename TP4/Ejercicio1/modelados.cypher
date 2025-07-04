@@ -1,3 +1,4 @@
+
 CREATE
   //crear empleados
   (e1:Empleado {nombre: "Juan Ignacio"}),
